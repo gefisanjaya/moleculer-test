@@ -1,0 +1,61 @@
+{
+  "name": "moleculer-microservices",
+  "author": "Pablo Magaz",
+  "license": "MIT",
+  "version": "0.1.1",
+  "description": "Microservices with Moleculer and TypeScript",
+  "scripts": {
+    "tsc": "tsc",
+    "start": "ts-node ./node_modules/moleculer/bin/moleculer-runner.js --repl --envfile .env/.env.dev src/services/**/*.service.ts",
+    "lint": "eslint src --ext .ts --ext .js --ignore-pattern '**/specs/*'",
+    "format": "yarn lint --fix && prettier --write \"./**/*.{js,ts,tsx,jsx,json}\""
+  },
+  "keywords": [
+    "microservices",
+    "moleculer",
+    "nats",
+    "typescript"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn run tsc"
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.17",
+    "@typescript-eslint/eslint-plugin": "2.11.0",
+    "@typescript-eslint/parser": "2.11.0",
+    "eslint": "6.7.2",
+    "eslint-config-airbnb-base": "14.0.0",
+    "eslint-config-prettier": "6.7.0",
+    "eslint-import-resolver-typescript": "2.0.0",
+    "eslint-plugin-import": "2.19.1",
+    "eslint-plugin-prettier": "3.1.1",
+    "husky": "3.1.0",
+    "lint-staged": "9.5.0",
+    "prettier": "1.19.1",
+    "rimraf": "3.0.0",
+    "ts-node": "^10.7.0",
+    "typescript": "3.7.3"
+  },
+  "dependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.6",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "8.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "moleculer": "0.13.11",
+    "moleculer-repl": "0.6.1",
+    "moleculer-web": "0.9.0-beta6",
+    "nats": "1.3.2",
+    "node-fetch": "2.6.1",
+    "path": "0.12.7",
+    "pg": "^8.12.0",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.20"
+  },
+  "engines": {
+    "node": ">= 10.x.x"
+  }
+}
